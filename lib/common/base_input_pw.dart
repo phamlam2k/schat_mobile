@@ -33,6 +33,7 @@ class _BasePasswordInputState extends State<BasePasswordInput> {
         Text(widget.label, style: const TextStyle(color: Colors.black)),
         const SizedBox(height: 10.0),
         TextFormField(
+          controller: widget.controller,
           obscureText: _isObscured,
           decoration: InputDecoration(
             hintText: widget.hintText,

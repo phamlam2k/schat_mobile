@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:schat/apis/auth.dart';
 import 'package:schat/common/base_button.dart';
 import 'package:schat/common/base_checkbox.dart';
@@ -6,7 +7,10 @@ import 'package:schat/common/base_input_form.dart';
 import 'package:schat/common/base_input_pw.dart';
 import 'package:schat/components/login/text_link.dart';
 import 'package:schat/components/login/text_rules_link.dart';
+import 'package:schat/controllers/auth_controller.dart';
 import 'package:schat/layout/auth_layout.dart';
+import 'package:schat/screens/home/home.dart';
+import 'package:schat/security/token_action.dart';
 
 class LoginForm extends StatefulWidget {
   @override
@@ -29,7 +33,7 @@ class _LoginFormState extends State<LoginForm> {
     super.dispose();
   }
 
-  onLogin() {
+  onLogin() async {
     if (_formKey.currentState?.validate() ?? false) {
       // Nếu form hợp lệ, lưu trữ các field và in giá trị ra
       _formKey.currentState?.save();
@@ -46,6 +50,28 @@ class _LoginFormState extends State<LoginForm> {
     return FutureBuilder(
         future: _loginFuture,
         builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Lỗi: ${snapshot.error}')),
+              );
+            });
+          } else if (snapshot.hasData) {
+            final authController = Get.find<AuthController>();
+
+            authController.setToken(snapshot.data['metadata']['accessToken']);
+            saveToken(snapshot.data['metadata']['accessToken']);
+
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text("Suc: ${snapshot.data['message']}")),
+              );
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            });
+          }
+
           return Form(
               key: _formKey,
               child: AuthLayout(

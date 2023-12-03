@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:schat/screens/auth/login_screen.dart';
+import 'package:get/get.dart';
+import 'package:schat/controllers/auth_controller.dart';
+import 'package:schat/routers.dart';
+import 'package:schat/security/token_action.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Đảm bảo binding đã được khởi tạo
+  await loadToken();
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final authController = Get.put(AuthController());
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -19,9 +27,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/',
-      routes: {
-        '/': (context) => LoginScreen(),
-      },
+      getPages: AppPages.routes,
     );
   }
 }

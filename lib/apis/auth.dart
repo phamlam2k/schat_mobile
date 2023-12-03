@@ -10,7 +10,8 @@ Future login(String account, String password) async {
 
   final uri =
       Uri.parse(ApiEndPoint.baseUrl + ApiEndPoint.authEndPoints.loginApi);
-  http.Response response = await http.post(uri, body: request);
+  http.Response response = await http.post(uri,
+      headers: {'Content-Type': 'application/json'}, body: jsonEncode(request));
 
   if (response.statusCode == 200) {
     return json.decode(response.body);
