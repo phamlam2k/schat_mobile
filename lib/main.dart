@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schat/controllers/auth_controller.dart';
+import 'package:schat/di/di_setup.dart';
 import 'package:schat/routers.dart';
 import 'package:schat/security/token_action.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Đảm bảo binding đã được khởi tạo
   await loadToken();
-
+  configureDependencies();
   runApp(MyApp());
 }
 
