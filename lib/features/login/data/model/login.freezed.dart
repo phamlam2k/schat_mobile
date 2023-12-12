@@ -146,16 +146,6 @@ class _$LoginImpl implements _Login {
       this,
     );
   }
-  
-  @override
-  set account(String _account) {
-    // TODO: implement account
-  }
-  
-  @override
-  set password(String _password) {
-    // TODO: implement password
-  }
 }
 
 abstract class _Login implements Login {

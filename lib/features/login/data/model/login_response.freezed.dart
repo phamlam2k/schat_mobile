@@ -142,11 +142,6 @@ class _$LoginResponseModelDataImpl implements _LoginResponseModelData {
       this,
     );
   }
-  
-  @override
-  set accessToken(String _accessToken) {
-    // TODO: implement accessToken
-  }
 }
 
 abstract class _LoginResponseModelData implements LoginResponseModelData {

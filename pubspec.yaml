@@ -54,6 +54,12 @@ dependencies:
   json_serializable: ^6.7.1
   easy_localization: ^3.0.3
 
+  flutter_secure_storage: ^9.0.0
+
+   # Fonts and Icons
+  google_fonts: ^6.0.0
+  flutter_svg: ^2.0.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -70,6 +76,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

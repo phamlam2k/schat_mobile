@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:schat/app/extensions/color.dart';
+
+class AppColors {
+  static Color theme = const Color(0xFFF1F3F9);
+  static const Color primary = Color(0xFF05101A);
+  static Color lightGray = HexColor("D3D3D3");
+  static Color light = Colors.white;
+  static Color darkGreen = const Color(0xFF002E42);
+  static Color errorContainer = HexColor("#A6192E");
+  static const Color green = Color(0xFF19A630);
+
+  static Color grey = HexColor("#636363");
+  static const Color lightGrey = Color(0xFF8B8B8B);
+  static Color extraLightGrey = HexColor(" #DDDDDD");
+
+  static Color lightBackground = HexColor("#F1F3F9");
+  static Color lightPrimary = HexColor("#A6192E");
+  static Color lightSecondary = HexColor("#636363");
+  static Color lightTertiary = HexColor("#202020");
+
+  static const Color darkBackground = Color(0xFF000000);
+  static Color darkPrimary = Colors.white;
+  static Color darkSecondary = Colors.grey[400]!;
+
+  // Natures
+  static const Color nature20 = Color(0xFFF1F1F1);
+  static const Color nature30 = Color(0xFFDDDDDD);
+  static const Color nature50 = Color(0xFFB4B4B4);
+  static const Color nature70 = Color(0xFF8B8B8B);
+  static const Color nature60 = Color(0xFFA0A0A0);
+  static const Color nature90 = Color(0xFF636363);
+  static const Color nature100 = Color(0xFF4E4E4E);
+}
