@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schat/presentation/middlewares/redirect_middleware.dart';
+import 'package:schat/presentation/pages/login/login_page.dart';
 
 
 part './app_routes.dart';
@@ -12,7 +12,7 @@ abstract class AppPages {
       middlewares: [
         RedirectMiddleware(),
       ],
-      page: () => Container(),
+      page: () => const LoginPage(),
     ),
   ];
 }

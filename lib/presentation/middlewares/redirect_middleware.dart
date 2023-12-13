@@ -8,6 +8,10 @@ class RedirectMiddleware extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    final authController = Get.find<AuthController>();
+   if (Get.find<AuthController>().accessToken.value == '') {
+      // Nếu người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+      return const RouteSettings(name: '/login');
+    }
+    return null; //Nếu đã đăng nhập, tiếp tục như bình thường
   }
 }

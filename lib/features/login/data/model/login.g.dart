@@ -1,18 +1,18 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+// // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login.dart';
+// part of 'login.dart';
 
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
+// // **************************************************************************
+// // JsonSerializableGenerator
+// // **************************************************************************
 
-_$LoginImpl _$$LoginImplFromJson(Map<String, dynamic> json) => _$LoginImpl(
-      account: json['account'] as String,
-      password: json['password'] as String,
-    );
+// _$LoginImpl _$$LoginImplFromJson(Map<String, dynamic> json) => _$LoginImpl(
+//       account: json['account'] as String,
+//       password: json['password'] as String,
+//     );
 
-Map<String, dynamic> _$$LoginImplToJson(_$LoginImpl instance) =>
-    <String, dynamic>{
-      'account': instance.account,
-      'password': instance.password,
-    };
+// Map<String, dynamic> _$$LoginImplToJson(_$LoginImpl instance) =>
+//     <String, dynamic>{
+//       'account': instance.account,
+//       'password': instance.password,
+//     };

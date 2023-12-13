@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:schat/widgets/login_form.dart';
+import 'package:schat/presentation/pages/login/widgets/login_form.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
