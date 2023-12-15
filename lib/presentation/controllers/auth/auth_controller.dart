@@ -12,6 +12,7 @@ class AuthController extends GetxController {
   });
 
   final formKey = GlobalKey<FormState>();
+  final TextEditingController fullNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -21,6 +22,7 @@ class AuthController extends GetxController {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    fullNameController.dispose();
     super.dispose();
   }
 
@@ -49,7 +51,31 @@ class AuthController extends GetxController {
     }
   }
 
-  void onRegister() {
+  Future<void> onRegister() async {
+    try {
+      if (formKey.currentState?.validate() ?? false) {
+        // Nếu form hợp lệ, lưu trữ các field và in giá trị ra
+        formKey.currentState?.save();
+        // Lấy giá trị từ các field sử dụng các controller
+        final response = await authenticationRepository.register(
+          fullName: fullNameController.text,
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        print(response);
+      }
+    } on APIResponseException catch (e) {
+      SnackbarHelper.errorSnackbar(e.message);
+    } catch (e) {
+      SnackbarHelper.errorSnackbar(e.toString());
+    }
+  }
+
+  void onSwitchRegister() {
     isRegister.value = true;
+  }
+
+  void onSwitchLogin() {
+    isRegister.value = false;
   }
 }

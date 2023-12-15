@@ -6,5 +6,8 @@
   "enter_password": "Nhập mật khẩu",
   "remember": "Ghi nhớ",
   "forgot_password": "Quên mật khẩu",
-  "login": "Đăng nhập"
+  "login": "Đăng nhập",
+
+  "signup_title": "Đăng ký tài khoản",
+  "signup": "Đăng ký"
 }

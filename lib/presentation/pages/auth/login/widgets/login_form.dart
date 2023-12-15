@@ -11,7 +11,7 @@ import 'package:schat/layout/auth_layout.dart';
 import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class LoginForm extends GetView<AuthController>{
+class LoginForm extends GetView<AuthController> {
   const LoginForm({super.key});
 
   @override
@@ -26,14 +26,15 @@ class LoginForm extends GetView<AuthController>{
               Text(
                 t.signin_title,
                 textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium!.copyWith( // Viet lai trong theme theo theme design
-                    color: const Color(0xFF1F2937), 
+                style: theme.textTheme.bodyMedium!.copyWith(
+                    // Viet lai trong theme theo theme design
+                    color: const Color(0xFF1F2937),
                     fontSize: 26.2,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 5.0),
               Text(
-                  t.signin_des,
+                t.signin_des,
                 textAlign: TextAlign.center,
                 style: theme.textTheme.bodyMedium!.copyWith(
                   color: const Color(0xFF4B5563), // Màu sắc cho slogan
@@ -51,13 +52,13 @@ class LoginForm extends GetView<AuthController>{
               BasePasswordInput(
                 label: t.password,
                 hintText: t.enter_password,
-                iconPath: AppIcons.person,
+                iconPath: AppIcons.password,
                 controller: controller.passwordController,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  BaseCheckBox(label:t.remember),
+                  BaseCheckBox(label: t.remember),
                   GestureDetector(
                     onTap: () {},
                     child: Text(
@@ -75,7 +76,7 @@ class LoginForm extends GetView<AuthController>{
               ),
               const SizedBox(height: 16.0),
               BaseButton(
-                label:t.login,
+                label: t.login,
                 onPressed: controller.onLogin,
                 // isLoading: snapshot.connectionState == ConnectionState.waiting,
               ),

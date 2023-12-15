@@ -2,12 +2,14 @@ import 'package:schat/data/providers/network/api_endpoint.dart';
 import 'package:schat/data/providers/network/api_provider.dart';
 import 'package:schat/data/providers/network/api_request_representable.dart';
 
-class LoginRequest implements APIRequestRepresentable {
-  String? account;
+class RegisterRequest implements APIRequestRepresentable {
+  String? fullName;
+  String? email;
   String? password;
 
-  LoginRequest({
-    this.account,
+  RegisterRequest({
+    this.fullName,
+    this.email,
     this.password,
   });
 
@@ -15,7 +17,7 @@ class LoginRequest implements APIRequestRepresentable {
   String get baseUrl => BaseUrls.baseUrl;
 
   @override
-  String get endpoint => APIEndpoint.login;
+  String get endpoint => APIEndpoint.register;
 
   @override
   HTTPMethod get method {
@@ -31,7 +33,7 @@ class LoginRequest implements APIRequestRepresentable {
   }
 
   @override
-  get body => {"account": account, "password": password};
+  get body => {"email": email, "fullName": fullName, "password": password};
 
   // @override
   // Future request() {
