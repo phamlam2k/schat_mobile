@@ -25,7 +25,7 @@ abstract class APIRequestRepresentable {
 
   String get url => baseUrl + endpoint;
 
-  String get baseUrl => BaseUrls.turboOnline;
+  String get baseUrl => BaseUrls.baseUrl;
 
   String get endpoint;
 

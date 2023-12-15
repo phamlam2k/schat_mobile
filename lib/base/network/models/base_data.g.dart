@@ -29,8 +29,9 @@ BaseData<T> _$BaseDataFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     BaseData<T>(
-      data: _$nullableGenericFromJson(json['data'], fromJsonT),
+      metadata: _$nullableGenericFromJson(json['metadata'], fromJsonT),
       status: json['status'] as int?,
+      message: _$nullableGenericFromJson(json['message'], fromJsonT),
     );
 
 Map<String, dynamic> _$BaseDataToJson<T>(
@@ -38,7 +39,8 @@ Map<String, dynamic> _$BaseDataToJson<T>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
-      'data': _$nullableGenericToJson(instance.data, toJsonT),
+      'metadata': _$nullableGenericToJson(instance.metadata, toJsonT),
+      'message': _$nullableGenericToJson(instance.message, toJsonT),
       'status': instance.status,
     };
 

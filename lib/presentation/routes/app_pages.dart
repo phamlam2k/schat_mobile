@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
-import 'package:schat/presentation/middlewares/redirect_middleware.dart';
-import 'package:schat/presentation/pages/login/login_page.dart';
-
+import 'package:schat/presentation/controllers/auth/auth_binding.dart';
+import 'package:schat/presentation/pages/auth/auth_page.dart';
 
 part './app_routes.dart';
 
@@ -9,9 +8,7 @@ abstract class AppPages {
   static final pages = [
     GetPage(
       name: Routes.root,
-      middlewares: [
-        RedirectMiddleware(),
-      ],
+      binding: AuthBindings(),
       page: () => const LoginPage(),
     ),
   ];

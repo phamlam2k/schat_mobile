@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schat/app/theme/light_theme.dart';
-import 'package:schat/presentation/controllers/auth/auth_binding.dart';
+import 'package:schat/presentation/controllers/app_bindings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:schat/presentation/routes/app_pages.dart';
 

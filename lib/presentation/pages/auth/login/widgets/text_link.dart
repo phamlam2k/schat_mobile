@@ -1,7 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 
-class LoginLinkText extends StatelessWidget {
+class LoginLinkText extends GetView<AuthController> {
+  const LoginLinkText({super.key});
+
   @override
   Widget build(BuildContext context) {
     return RichText(
@@ -16,7 +20,7 @@ class LoginLinkText extends StatelessWidget {
                 color: Colors.green, fontWeight: FontWeight.bold),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.of(context).pushNamed('/register');
+                controller.onRegister();
               },
           ),
         ],
