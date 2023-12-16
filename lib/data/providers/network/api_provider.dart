@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart' as g;
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:schat/app/core/exceptions/api_response_exception.dart';
 import 'package:schat/app/services/local_storage.dart';
 import 'package:schat/app/types/token_manager.dart';
-import 'package:schat/common/logger/dio_logger.dart';
 import 'package:schat/data/providers/network/api_endpoint.dart';
 import 'package:schat/data/providers/network/api_request_representable.dart';
 import 'package:schat/domain/models/user_context/user_context.dart';
@@ -129,7 +129,7 @@ class RefreshTokenRequest<T> extends APIRequestRepresentable {
       };
 
   @override
-  String get baseUrl => BaseUrls.turboOnline;
+  String get baseUrl => BaseUrls.baseUrl;
 
   @override
   Map<String, String>? get headers => null;

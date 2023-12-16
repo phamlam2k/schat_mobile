@@ -1,3 +1,13 @@
 {
-  "signin_title": "Sign In"
+  "signin_title": "Đăng nhập thành viên",
+  "signin_des": "Cộng động nhà đầu tư chuyên nghiệp",
+  "user_name": "Tên người dùng",
+  "password": "Mật khẩu",
+  "enter_password": "Nhập mật khẩu",
+  "remember": "Ghi nhớ",
+  "forgot_password": "Quên mật khẩu",
+  "login": "Đăng nhập",
+
+  "signup_title": "Đăng ký tài khoản",
+  "signup": "Đăng ký"
 }

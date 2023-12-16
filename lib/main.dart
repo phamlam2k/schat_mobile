@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:schat/app/services/local_storage.dart';
 import 'package:schat/app/util/dependency.dart';
@@ -23,7 +24,7 @@ import 'package:schat/presentation/app.dart';
 // }
 
 void main() async {
-  // await dotenv.load(fileName: "assets/env/.env");
+  await dotenv.load(fileName: "assets/env/.env_dev");
   WidgetsFlutterBinding.ensureInitialized();
   await initServices();
   DependencyCreator.init();

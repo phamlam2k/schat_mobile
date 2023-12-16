@@ -2,11 +2,12 @@ import 'package:get/get.dart';
 import 'package:schat/domain/repositories/auth_repository.dart';
 import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 
-class AuthBindings extends Bindings {
+class AppBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => AuthController(
-      authenticationRepository: Get.find<AuthenticationRepository>()
-    ));
+    Get.put(
+        AuthController(
+            authenticationRepository: Get.find<AuthenticationRepository>()),
+        permanent: true);
   }
 }

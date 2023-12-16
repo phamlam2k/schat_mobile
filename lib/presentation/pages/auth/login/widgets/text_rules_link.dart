@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class RuleLinkText extends StatelessWidget {
+  const RuleLinkText({super.key});
+
   @override
   Widget build(BuildContext context) {
     return RichText(

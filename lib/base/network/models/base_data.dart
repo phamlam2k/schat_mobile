@@ -31,7 +31,14 @@ class BaseListData<T> {
   explicitToJson: true,
 )
 class BaseData<T> {
-  BaseData({this.data, this.status});
+  @JsonKey(name: 'metadata')
+  T? metadata;
+  @JsonKey(name: 'message')
+  T? message;
+  @JsonKey(name: 'status')
+  int? status;
+
+  BaseData({this.metadata, this.status,this.message});
 
   factory BaseData.fromJson(
     Map<String, dynamic> json,
@@ -41,9 +48,4 @@ class BaseData<T> {
 
   Map<String, dynamic> toJson(Object? Function(T value) toJsonT) =>
       _$BaseDataToJson(this, toJsonT);
-
-  @JsonKey(name: 'data')
-  T? data;
-  @JsonKey(name: 'status')
-  int? status;
 }
