@@ -9,4 +9,8 @@ abstract class AuthenticationRepository {
     required String email,
     required String password,
   });
+
+  Future forgotPassword({
+    required String email,
+  });
 }

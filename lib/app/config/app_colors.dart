@@ -22,6 +22,7 @@ class AppColors {
   static const Color darkBackground = Color(0xFF000000);
   static Color darkPrimary = Colors.white;
   static Color darkSecondary = Colors.grey[400]!;
+  static Color yellowLight = Color(0xFFFFF5D1);
 
   // Natures
   static const Color nature20 = Color(0xFFF1F1F1);
