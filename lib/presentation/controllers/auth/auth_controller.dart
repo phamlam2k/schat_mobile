@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:schat/app/core/exceptions/api_response_exception.dart';
 import 'package:schat/app/helpers/snack_bar_helper.dart';
 import 'package:schat/domain/repositories/auth_repository.dart';
+import 'package:schat/presentation/routes/app_pages.dart';
 
 class AuthController extends GetxController {
   final AuthenticationRepository authenticationRepository;
@@ -11,7 +12,7 @@ class AuthController extends GetxController {
     required this.authenticationRepository,
   });
 
-  final formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -62,7 +63,9 @@ class AuthController extends GetxController {
           email: emailController.text,
           password: passwordController.text,
         );
-        print(response);
+        if(response != null){
+          onSwitchVerifyOtp();
+        }
       }
     } on APIResponseException catch (e) {
       SnackbarHelper.errorSnackbar(e.message);
@@ -77,5 +80,9 @@ class AuthController extends GetxController {
 
   void onSwitchLogin() {
     isRegister.value = false;
+  }
+
+  void onSwitchVerifyOtp(){
+    Get.toNamed(Routes.verifyOtp);
   }
 }
