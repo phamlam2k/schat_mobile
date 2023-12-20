@@ -1,5 +1,6 @@
 import 'package:schat/data/providers/network/apis/auth/login_request.dart';
 import 'package:schat/data/providers/network/apis/auth/register_request.dart';
+import 'package:schat/data/providers/network/apis/auth/verify_otp_request.dart';
 
 class AuthAPI {
   static Future login({
@@ -20,5 +21,14 @@ class AuthAPI {
         fullName: fullName,
         email: email,
         password: password,
+      ).request();
+
+  static Future verifyOtp({
+    required String? otp,
+    required String? email,
+  }) async =>
+      VerifyOtpRequest(
+        otp: otp,
+        email: email,
       ).request();
 }

@@ -22,4 +22,11 @@ class AuthenticationRepositoryIml extends AuthenticationRepository {
         email: email,
         password: password,
       );
+
+  @override
+  Future verifyOtp({required String? email, required String? otp}) async =>
+      AuthAPI.verifyOtp(
+        otp: otp,
+        email: email,
+      );
 }

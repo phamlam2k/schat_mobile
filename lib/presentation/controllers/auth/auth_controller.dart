@@ -16,7 +16,7 @@ class AuthController extends GetxController {
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
+  final TextEditingController otpController = TextEditingController();
   final isRegister = false.obs;
 
   @override
@@ -24,6 +24,7 @@ class AuthController extends GetxController {
     emailController.dispose();
     passwordController.dispose();
     fullNameController.dispose();
+    otpController.dispose();
     super.dispose();
   }
 
@@ -73,6 +74,24 @@ class AuthController extends GetxController {
       SnackbarHelper.errorSnackbar(e.toString());
     }
   }
+
+  Future<void> onVerifyOtp() async {
+    print(otpController.text);
+    try {
+        final response = await authenticationRepository.verifyOtp(
+          otp: otpController.text,
+          email: emailController.text,
+        );
+        if(response != null){
+          print('response');
+        }
+    } on APIResponseException catch (e) {
+      SnackbarHelper.errorSnackbar(e.message);
+    } catch (e) {
+      SnackbarHelper.errorSnackbar(e.toString());
+    }
+  }
+
 
   void onSwitchRegister() {
     isRegister.value = true;

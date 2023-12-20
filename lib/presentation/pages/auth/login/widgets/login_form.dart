@@ -86,7 +86,7 @@ class LoginForm extends GetView<AuthController> {
               const Align(
                 alignment: Alignment.center,
                 child: LoginLinkText(),
-              )
+              ),
             ],
           ),
         ));

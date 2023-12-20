@@ -4,13 +4,19 @@ import 'package:get/get.dart';
 import 'package:schat/app/config/app_colors.dart';
 import 'package:schat/app/config/app_text_styles.dart';
 import 'package:schat/common/base_button.dart';
+import 'package:schat/common/widgets/pin_number_field.dart';
 import 'package:schat/layout/auth_layout.dart';
 import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 import 'package:schat/presentation/pages/auth/register/widgets/text_switch_link.dart';
 
-class VerifyOtpForm extends GetView<AuthController> {
-  const VerifyOtpForm({super.key});
+class VerifyOtpForm extends StatefulWidget {
+  const VerifyOtpForm({super.key, required this.controller});
+  final AuthController controller;
+  @override
+  State<VerifyOtpForm> createState() => _VerifyOtpFormState();
+}
 
+class _VerifyOtpFormState extends State<VerifyOtpForm> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -40,14 +46,27 @@ class VerifyOtpForm extends GetView<AuthController> {
                     children: [
                       const TextSpan(text: ' '),
                       TextSpan(
-                          text: controller.emailController.text,
+                          text: widget.controller.emailController.text,
                           style: const TextStyle(fontWeight: FontWeight.bold))
                     ])),
           ),
           const SizedBox(height: 25.0),
+          PINNumberWidget(
+            controller: widget.controller.otpController,
+            onCompleted: (String val) {
+              widget.controller.onVerifyOtp;
+            },
+          ),
+          const SizedBox(height: 25.0),
+          Text(t.not_receive_otp,
+              style: AppTextStyles.body.copyWith(
+                fontWeight: FontWeight.w500,
+                color: AppColors.grey600,
+              )),
+          const SizedBox(height: 50.0),
           BaseButton(
             label: t.signup,
-            onPressed: controller.onRegister,
+            onPressed: widget.controller.onVerifyOtp,
             // isLoading: snapshot.connectionState == ConnectionState.waiting,
           ),
           const SizedBox(height: 7.0),

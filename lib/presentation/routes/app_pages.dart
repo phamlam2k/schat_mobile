@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:schat/presentation/controllers/auth/auth_binding.dart';
+import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 import 'package:schat/presentation/pages/auth/auth_page.dart';
 import 'package:schat/presentation/pages/auth/verify_otp/verify_otp_screen.dart';
 
@@ -15,7 +16,7 @@ abstract class AppPages {
      GetPage(
       name: Routes.verifyOtp,
       binding: AuthBindings(),
-      page: () => const VerifyOtpPage(),
+      page: () => VerifyOtpPage(),
     ),
   ];
 }

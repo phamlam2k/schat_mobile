@@ -9,4 +9,9 @@ abstract class AuthenticationRepository {
     required String email,
     required String password,
   });
+
+  Future verifyOtp({
+    required String email,
+    required String otp,
+  });
 }

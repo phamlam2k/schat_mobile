@@ -53,7 +53,7 @@ class PINNumberWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Pinput(
-          scrollPadding: scrollPadding ?? const EdgeInsets.all(20),
+          scrollPadding: scrollPadding ?? const EdgeInsets.all(8),
           focusNode: focusNode,
           controller: controller,
           autofocus: true,
@@ -78,7 +78,7 @@ class PINNumberWidget extends StatelessWidget {
           // ),
           onChanged: onChanged,
           onCompleted: onCompleted,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
           defaultPinTheme: defaultPinTheme,
           followingPinTheme: defaultPinTheme.copyWith(
             decoration: BoxDecoration(

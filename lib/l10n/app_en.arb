@@ -14,5 +14,6 @@
   "verify_otp_title": "Xác minh tài khoản",
   "enter_otp": "Nhập mã xác minh OTP được gửi qua email",
   "resend_otp": "Bạn không nhận được mã OTP? Gửi lại sau 60s",
-  "activate": "Kích hoạt"
+  "activate": "Kích hoạt",
+  "not_receive_otp": "Bạn không nhận được mã OTP? Gửi lại sau 60s"
 }
