@@ -21,7 +21,7 @@ static Color red = Colors.red;
   static Color lightSecondary = HexColor("#636363");
   static Color lightTertiary = HexColor("#202020");
 
-  static const Color darkBackground = Color(0xFF000000);
+  static Color darkBackground = HexColor("#2E2E2E");
   static Color darkPrimary = Colors.white;
   static Color darkSecondary = Colors.grey[400]!;
   static Color yellowLight = Color(0xFFFFF5D1);

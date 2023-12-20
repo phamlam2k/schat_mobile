@@ -13,7 +13,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialBinding: AppBindings(),
-      initialRoute: Routes.root,
+      initialRoute: Routes.home,
       getPages: AppPages.pages,
       routingCallback: routingCallback,
       debugShowCheckedModeBanner: false,
