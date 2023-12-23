@@ -32,15 +32,6 @@ class LoginForm extends GetView<AuthController> {
                     fontSize: 26.2,
                     fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 5.0),
-              Text(
-                t.signin_des,
-                textAlign: TextAlign.center,
-                style: theme.textTheme.bodyMedium!.copyWith(
-                  color: const Color(0xFF4B5563), // Màu sắc cho slogan
-                  fontSize: 15,
-                ),
-              ),
               const SizedBox(height: 16.0),
               BaseInputForm(
                 label: t.user_name,
@@ -60,7 +51,7 @@ class LoginForm extends GetView<AuthController> {
                 children: [
                   BaseCheckBox(label: t.remember),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: controller.onSwitchForgotPage,
                     child: Text(
                       t.forgot_password,
                       style: theme.textTheme.bodyMedium!.copyWith(

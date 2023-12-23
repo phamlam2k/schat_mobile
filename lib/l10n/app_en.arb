@@ -9,5 +9,8 @@
   "login": "Đăng nhập",
 
   "signup_title": "Đăng ký tài khoản",
-  "signup": "Đăng ký"
+  "signup": "Đăng ký",
+
+  "forgot_title": "Quên mật khẩu",
+  "forgot_help_text": "Nhập địa chỉ Email đã đăng ký tài khoản để nhận mã xác thực OTP"
 }
