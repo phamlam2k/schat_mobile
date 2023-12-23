@@ -9,15 +9,9 @@ import 'package:schat/presentation/controllers/home/home_controller.dart';
 class BottomBar extends GetView<HomeController> {
   const BottomBar({
     Key? key,
-    // required this.press,
-    // required this.riveOnInit,
   }) : super(key: key);
-
-  // final VoidCallback press;
-  // final ValueChanged<Artboard> riveOnInit;
   @override
   Widget build(BuildContext context) {
-    print(controller.getIconForIndex(0));
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
       color: AppColors.darkBackground,
