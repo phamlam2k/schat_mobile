@@ -9,7 +9,7 @@ class AuthLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Row(
@@ -40,7 +40,7 @@ class AuthLayout extends StatelessWidget {
           ),
           Container(
             padding:
-                const EdgeInsets.only(right: 20, left: 20, top: 40, bottom: 40),
+                const EdgeInsets.only(right: 12, left: 12, top: 60, bottom: 40),
             margin: const EdgeInsets.only(top: 20, bottom: 30),
             child: body,
             decoration: BoxDecoration(

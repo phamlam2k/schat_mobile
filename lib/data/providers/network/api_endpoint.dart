@@ -7,5 +7,5 @@ class BaseUrls {
 class APIEndpoint {
   static String get login => '/auth/login';
   static String get register => '/auth/register';
-  static String get forgot => '/auth/sendOtpForGot';
+  static String get verifyOtp => '/auth/active';
 }

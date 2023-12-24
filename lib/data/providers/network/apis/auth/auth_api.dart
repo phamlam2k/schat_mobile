@@ -1,6 +1,7 @@
 import 'package:schat/data/providers/network/apis/auth/forgot_pass_request.dart';
 import 'package:schat/data/providers/network/apis/auth/login_request.dart';
 import 'package:schat/data/providers/network/apis/auth/register_request.dart';
+import 'package:schat/data/providers/network/apis/auth/verify_otp_request.dart';
 
 class AuthAPI {
   static Future login({
@@ -27,6 +28,15 @@ class AuthAPI {
     required String? email,
   }) async =>
       ForgotPasswordRequest(
+        email: email,
+      ).request();
+
+  static Future verifyOtp({
+    required String? otp,
+    required String? email,
+  }) async =>
+      VerifyOtpRequest(
+        otp: otp,
         email: email,
       ).request();
 }

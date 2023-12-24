@@ -10,6 +10,11 @@ abstract class AuthenticationRepository {
     required String password,
   });
 
+  Future verifyOtp({
+    required String email,
+    required String otp,
+  });
+
   Future forgotPassword({
     required String email,
   });

@@ -9,11 +9,13 @@ class AppColors {
   static Color darkGreen = const Color(0xFF002E42);
   static Color errorContainer = HexColor("#A6192E");
   static const Color green = Color(0xFF19A630);
-
+  static Color lightYellow = Color(0xFFFFF5D1);
+  static Color blackText = Color(0xFF495057);
   static Color grey = HexColor("#636363");
+  static const Color grey600 = Color(0xFF4B5563);
   static const Color lightGrey = Color(0xFF8B8B8B);
   static Color extraLightGrey = HexColor(" #DDDDDD");
-
+static Color red = Colors.red;
   static Color lightBackground = HexColor("#F1F3F9");
   static Color lightPrimary = HexColor("#A6192E");
   static Color lightSecondary = HexColor("#636363");
