@@ -17,7 +17,7 @@ abstract class AppPages {
      GetPage(
       name: Routes.verifyOtp,
       binding: AuthBindings(),
-      page: () => VerifyOtpPage(),
+      page: () => const VerifyOtpPage(),
     ),
     GetPage(
       name: Routes.forgot,

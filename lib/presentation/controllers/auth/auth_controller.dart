@@ -79,14 +79,13 @@ class AuthController extends GetxController {
   }
 
   Future<void> onVerifyOtp() async {
-    print(otpController.text);
     try {
         final response = await authenticationRepository.verifyOtp(
           otp: otpController.text,
           email: emailController.text,
         );
         if(response != null){
-          print('response');
+         Get.toNamed(Routes.root);
         }
     } on APIResponseException catch (e) {
       SnackbarHelper.errorSnackbar(e.message);

@@ -13,7 +13,7 @@ class ForgotPasswordRequest implements APIRequestRepresentable {
   String get baseUrl => BaseUrls.baseUrl;
 
   @override
-  String get endpoint => APIEndpoint.forgot;
+  String get endpoint => APIEndpoint.sendOtpForgot;
 
   @override
   HTTPMethod get method {

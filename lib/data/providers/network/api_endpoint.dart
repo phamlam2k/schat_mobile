@@ -8,4 +8,5 @@ class APIEndpoint {
   static String get login => '/auth/login';
   static String get register => '/auth/register';
   static String get verifyOtp => '/auth/active';
+  static String get sendOtpForgot => '/auth/sentOtpForGot';
 }
