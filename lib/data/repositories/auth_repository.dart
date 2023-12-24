@@ -29,4 +29,10 @@ class AuthenticationRepositoryIml extends AuthenticationRepository {
         otp: otp,
         email: email,
       );
+
+  @override
+  Future forgotPassword({required String? email}) async =>
+      AuthAPI.forgotPassword(
+        email: email,
+      );
 }

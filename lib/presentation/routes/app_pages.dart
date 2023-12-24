@@ -3,6 +3,7 @@ import 'package:schat/presentation/controllers/auth/auth_binding.dart';
 import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 import 'package:schat/presentation/pages/auth/auth_page.dart';
 import 'package:schat/presentation/pages/auth/verify_otp/verify_otp_screen.dart';
+import 'package:schat/presentation/pages/forgot/forgot_password_page.dart';
 
 part './app_routes.dart';
 
@@ -17,6 +18,11 @@ abstract class AppPages {
       name: Routes.verifyOtp,
       binding: AuthBindings(),
       page: () => VerifyOtpPage(),
+    ),
+    GetPage(
+      name: Routes.forgot,
+      binding: AuthBindings(),
+      page: () => const ForgotPasswordPage(),
     ),
   ];
 }
