@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schat/app/core/exceptions/api_response_exception.dart';
 import 'package:schat/app/helpers/snack_bar_helper.dart';
+import 'package:schat/app/util/token_manager.dart';
 import 'package:schat/domain/repositories/auth_repository.dart';
 import 'package:schat/presentation/routes/app_pages.dart';
 import 'package:schat/presentation/routes/app_pages.dart';
 
 class AuthController extends GetxController {
   final AuthenticationRepository authenticationRepository;
+    final _tokenManager = TokenManager();
 
   AuthController({
     required this.authenticationRepository,
@@ -47,7 +49,7 @@ class AuthController extends GetxController {
           account: emailController.text,
           password: passwordController.text,
         );
-        print(response);
+       _tokenManager.setAccessToken(response.accessToken);
       }
     } on APIResponseException catch (e) {
       SnackbarHelper.errorSnackbar(e.message);

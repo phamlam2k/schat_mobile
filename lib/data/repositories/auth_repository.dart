@@ -1,9 +1,10 @@
 import 'package:schat/data/providers/network/apis/auth/auth_api.dart';
+import 'package:schat/domain/models/user_context/user_context.dart';
 import 'package:schat/domain/repositories/auth_repository.dart';
 
 class AuthenticationRepositoryIml extends AuthenticationRepository {
   @override
-  Future login({
+  Future<UserContext> login({
     required String? account,
     required String? password,
   }) async =>
