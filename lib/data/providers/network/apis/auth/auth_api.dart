@@ -2,9 +2,10 @@ import 'package:schat/data/providers/network/apis/auth/forgot_pass_request.dart'
 import 'package:schat/data/providers/network/apis/auth/login_request.dart';
 import 'package:schat/data/providers/network/apis/auth/register_request.dart';
 import 'package:schat/data/providers/network/apis/auth/verify_otp_request.dart';
+import 'package:schat/domain/models/user_context/user_context.dart';
 
 class AuthAPI {
-  static Future login({
+  static Future<UserContext> login({
     required String? account,
     required String? password,
   }) async =>
