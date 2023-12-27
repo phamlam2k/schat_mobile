@@ -4,7 +4,7 @@ import 'package:schat/app/extensions/color.dart';
 class AppColors {
   static Color theme = const Color(0xFFF1F3F9);
   static const Color primary = Color(0xFF05101A);
-  static Color lightGray = HexColor("D3D3D3");
+  static Color lightGray = HexColor("#F6F6F9");
   static Color light = Colors.white;
   static Color darkGreen = HexColor("#209D4E");
   static Color errorContainer = HexColor("#A6192E");
@@ -15,7 +15,7 @@ class AppColors {
   static const Color grey600 = Color(0xFF4B5563);
   static const Color lightGrey = Color(0xFF8B8B8B);
   static Color extraLightGrey = HexColor(" #DDDDDD");
-static Color red = Colors.red;
+  static Color red = Colors.red;
   static Color lightBackground = HexColor("#F1F3F9");
   static Color lightPrimary = HexColor("#A6192E");
   static Color lightSecondary = HexColor("#636363");

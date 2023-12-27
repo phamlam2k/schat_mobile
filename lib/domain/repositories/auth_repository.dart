@@ -6,6 +6,10 @@ abstract class AuthenticationRepository {
     required String password,
   });
 
+  Future logout({
+    required String email,
+  });
+
   Future register({
     required String fullName,
     required String email,

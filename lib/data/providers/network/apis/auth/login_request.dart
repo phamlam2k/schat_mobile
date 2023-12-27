@@ -34,16 +34,11 @@ class LoginRequest implements APIRequestRepresentable {
   @override
   get body => {"account": account, "password": password};
 
-  // @override
-  // Future request() {
-  //   return APIProvider().request(this);
-  // }
-
   @override
   Future<UserContext> request() async {
     final Map<String, dynamic> res = await APIProvider().request(this);
-    if (res['message'] != null) {
-      return UserContext.fromJson(res['message']);
+    if (res['metadata'] != null) {
+      return UserContext.fromJson(res['metadata']);
     }
     return UserContext.fromJson(res);
   }

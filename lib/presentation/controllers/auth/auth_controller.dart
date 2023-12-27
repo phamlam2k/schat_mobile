@@ -4,15 +4,19 @@ import 'package:schat/app/core/exceptions/api_response_exception.dart';
 import 'package:schat/app/helpers/snack_bar_helper.dart';
 import 'package:schat/app/util/token_manager.dart';
 import 'package:schat/domain/repositories/auth_repository.dart';
-import 'package:schat/presentation/routes/app_pages.dart';
+import 'package:schat/presentation/controllers/app/app_controller.dart';
 import 'package:schat/presentation/routes/app_pages.dart';
 
 class AuthController extends GetxController {
   final AuthenticationRepository authenticationRepository;
-    final _tokenManager = TokenManager();
+
+  final AppController appController;
+
+  final _tokenManager = TokenManager();
 
   AuthController({
     required this.authenticationRepository,
+    required this.appController,
   });
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -42,34 +46,32 @@ class AuthController extends GetxController {
   Future<void> onLogin() async {
     try {
       if (formKey.currentState?.validate() ?? false) {
-        // Nếu form hợp lệ, lưu trữ các field và in giá trị ra
         formKey.currentState?.save();
-        // Lấy giá trị từ các field sử dụng các controller
         final response = await authenticationRepository.login(
           account: emailController.text,
           password: passwordController.text,
         );
-       _tokenManager.setAccessToken(response.accessToken);
+        appController.login(response);
       }
     } on APIResponseException catch (e) {
       SnackbarHelper.errorSnackbar(e.message);
     } catch (e) {
       SnackbarHelper.errorSnackbar(e.toString());
+    } finally {
+      Get.offAllNamed(Routes.home);
     }
   }
 
   Future<void> onRegister() async {
     try {
       if (formKey.currentState?.validate() ?? false) {
-        // Nếu form hợp lệ, lưu trữ các field và in giá trị ra
         formKey.currentState?.save();
-        // Lấy giá trị từ các field sử dụng các controller
         final response = await authenticationRepository.register(
           fullName: fullNameController.text,
           email: emailController.text,
           password: passwordController.text,
         );
-        if(response != null){
+        if (response != null) {
           onSwitchVerifyOtp();
         }
       }
@@ -82,20 +84,19 @@ class AuthController extends GetxController {
 
   Future<void> onVerifyOtp() async {
     try {
-        final response = await authenticationRepository.verifyOtp(
-          otp: otpController.text,
-          email: emailController.text,
-        );
-        if(response != null){
-         Get.toNamed(Routes.root);
-        }
+      final response = await authenticationRepository.verifyOtp(
+        otp: otpController.text,
+        email: emailController.text,
+      );
+      if (response != null) {
+        Get.toNamed(Routes.root);
+      }
     } on APIResponseException catch (e) {
       SnackbarHelper.errorSnackbar(e.message);
     } catch (e) {
       SnackbarHelper.errorSnackbar(e.toString());
     }
   }
-
 
   Future<void> onForgotPassword() async {
     try {
@@ -115,6 +116,19 @@ class AuthController extends GetxController {
     }
   }
 
+  Future<void> onLogout() async {
+    try {
+      await authenticationRepository.logout(
+        email: emailController.text,
+      );
+      appController.logout();
+    } on APIResponseException catch (e) {
+      SnackbarHelper.errorSnackbar(e.message);
+    } catch (e) {
+      SnackbarHelper.errorSnackbar(e.toString());
+    }
+  }
+
   void onSwitchRegister() {
     isRegister.value = true;
   }
@@ -123,7 +137,7 @@ class AuthController extends GetxController {
     isRegister.value = false;
   }
 
-  void onSwitchVerifyOtp(){
+  void onSwitchVerifyOtp() {
     Get.toNamed(Routes.verifyOtp);
   }
 

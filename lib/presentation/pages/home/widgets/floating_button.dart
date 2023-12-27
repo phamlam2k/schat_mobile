@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:schat/app/config/app_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:schat/presentation/controllers/home/home_controller.dart';
 
-class MyFloatingActionButton extends StatelessWidget {
+class MyFloatingActionButton extends GetView<HomeController> {
   const MyFloatingActionButton({Key? key}) : super(key: key);
 
   @override
@@ -39,8 +41,7 @@ class MyFloatingActionButton extends StatelessWidget {
               bottom: kToolbarHeight + 80,
               right: 8,
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
+                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -50,9 +51,12 @@ class MyFloatingActionButton extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     SpeechBubble(
-                      text: t.add_group,
-                      icon: Icons.group_add,
-                    ),
+                        text: t.add_group,
+                        icon: Icons.group_add,
+                        onTap: () {
+                          overlayEntry.remove();
+                          controller.onLogout();
+                        }),
                   ],
                 ),
               ),
@@ -70,9 +74,14 @@ class MyFloatingActionButton extends StatelessWidget {
 class SpeechBubble extends StatelessWidget {
   final String text;
   final IconData icon;
+  final void Function()? onTap;
 
-  const SpeechBubble({Key? key, required this.text, required this.icon})
-      : super(key: key);
+  const SpeechBubble({
+    Key? key,
+    required this.text,
+    required this.icon,
+    this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +91,7 @@ class SpeechBubble extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
       ),
       child: InkWell(
-        onTap: () {},
+        onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Row(
