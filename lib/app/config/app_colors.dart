@@ -6,7 +6,7 @@ class AppColors {
   static const Color primary = Color(0xFF05101A);
   static Color lightGray = HexColor("D3D3D3");
   static Color light = Colors.white;
-  static Color darkGreen = const Color(0xFF002E42);
+  static Color darkGreen = HexColor("#209D4E");
   static Color errorContainer = HexColor("#A6192E");
   static const Color green = Color(0xFF19A630);
   static Color lightYellow = Color(0xFFFFF5D1);
@@ -21,7 +21,7 @@ static Color red = Colors.red;
   static Color lightSecondary = HexColor("#636363");
   static Color lightTertiary = HexColor("#202020");
 
-  static const Color darkBackground = Color(0xFF000000);
+  static Color darkBackground = HexColor("#2E2E2E");
   static Color darkPrimary = Colors.white;
   static Color darkSecondary = Colors.grey[400]!;
   static Color yellowLight = Color(0xFFFFF5D1);
