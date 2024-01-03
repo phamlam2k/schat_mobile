@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class KeyboardDismisser extends StatelessWidget {
-  const KeyboardDismisser({
+class KeyboardDismiss extends StatelessWidget {
+  const KeyboardDismiss({
     super.key,
     required this.child,
   });
@@ -10,7 +10,7 @@ class KeyboardDismisser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-    onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-    child: child,
-  );
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: child,
+      );
 }

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schat/app/config/app_colors.dart';
 import 'package:schat/presentation/controllers/home/home_controller.dart';
+import 'package:schat/presentation/pages/home/views/chat.dart';
 import 'package:schat/presentation/pages/home/widgets/bottom_bar.dart';
 import 'package:schat/presentation/pages/home/widgets/floating_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:schat/presentation/widgets/keyboard_dismisser.dart';
+import 'package:schat/presentation/widgets/keyboard_dismiss.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class HomePage extends GetView<HomeController> {
           length: 2,
           child: Scaffold(
             backgroundColor: AppColors.theme,
-            body: KeyboardDismisser(
+            body: KeyboardDismiss(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -67,7 +68,7 @@ class HomePage extends GetView<HomeController> {
                     ),
                     child: TabBar(
                       indicator: BoxDecoration(
-                        borderRadius: BorderRadius.only(topRight: Radius.circular(16)),
+                        borderRadius: const BorderRadius.only(topRight: Radius.circular(16)),
 
                         color: AppColors.darkGreen, // Your selected tab background color
                       ),
@@ -89,7 +90,7 @@ class HomePage extends GetView<HomeController> {
                   const Expanded(
                     child: TabBarView(
                       children: [
-                        Center(child: Text('Content for tab 1')),
+                        ChatView(),
                         Center(child: Text('Content for tab 2')),
                       ],
                     ),

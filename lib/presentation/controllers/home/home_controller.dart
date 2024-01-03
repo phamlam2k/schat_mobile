@@ -11,6 +11,7 @@ class HomeController extends GetxController {
   }
 
   final AuthController authController;
+  final int chatItems = 9;
 
   HomeController({
     required this.authController,

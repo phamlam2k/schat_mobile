@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schat/app/config/app_icons.dart';
-import 'package:schat/common/base_button.dart';
-import 'package:schat/common/base_input_form.dart';
-import 'package:schat/common/base_input_pw.dart';
+import 'package:schat/presentation/widgets/base_button.dart';
+import 'package:schat/presentation/widgets/base_input_form.dart';
+import 'package:schat/presentation/widgets/base_input_pw.dart';
 import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 import 'package:schat/presentation/pages/auth/login/widgets/text_rules_link.dart';
 import 'package:schat/layout/auth_layout.dart';

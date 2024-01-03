@@ -19,10 +19,8 @@ class BottomBar extends GetView<HomeController> {
       child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: List.generate(
-              5,
-              (index) => buildTabItem(
-                  index: index, icon: controller.getIconForIndex(index)))),
+          children: List.generate(5, (index) => buildTabItem(index: index, icon: controller.getIconForIndex(index)))
+            ..add(buildAvatarItem())),
     );
   }
 
@@ -30,8 +28,7 @@ class BottomBar extends GetView<HomeController> {
     // Replace with your actual image asset path
     return const CircleAvatar(
       backgroundImage: AssetImage(AppImages.user),
-      backgroundColor: Colors
-          .transparent, // Assuming you want no color if the image fails to load
+      backgroundColor: Colors.transparent, // Assuming you want no color if the image fails to load
     );
   }
 
