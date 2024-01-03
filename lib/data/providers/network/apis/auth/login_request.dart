@@ -1,6 +1,7 @@
 import 'package:schat/data/providers/network/api_endpoint.dart';
 import 'package:schat/data/providers/network/api_provider.dart';
 import 'package:schat/data/providers/network/api_request_representable.dart';
+import 'package:schat/domain/models/user_context/user_context.dart';
 
 class LoginRequest implements APIRequestRepresentable {
   String? account;
@@ -33,15 +34,13 @@ class LoginRequest implements APIRequestRepresentable {
   @override
   get body => {"account": account, "password": password};
 
-  // @override
-  // Future request() {
-  //   return APIProvider().request(this);
-  // }
-
   @override
-  Future request() async {
-    final response = await APIProvider().request<Map<String, dynamic>>(this);
-    return response!['message'];
+  Future<UserContext> request() async {
+    final Map<String, dynamic> res = await APIProvider().request(this);
+    if (res['metadata'] != null) {
+      return UserContext.fromJson(res['metadata']);
+    }
+    return UserContext.fromJson(res);
   }
 
   @override

@@ -1,7 +1,13 @@
+import 'package:schat/domain/models/user_context/user_context.dart';
+
 abstract class AuthenticationRepository {
-  Future login({
+  Future<UserContext> login({
     required String account,
     required String password,
+  });
+
+  Future logout({
+    required String email,
   });
 
   Future register({

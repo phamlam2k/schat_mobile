@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:schat/app/config/app_colors.dart';
 import 'package:schat/app/config/app_text_styles.dart';
-import 'package:schat/utils/const.dart';
+import 'package:schat/app/util/const.dart';
 
 
 class PINNumberWidget extends StatelessWidget {

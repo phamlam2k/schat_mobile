@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 import 'package:schat/presentation/pages/auth/login/widgets/login_form.dart';
 import 'package:schat/presentation/pages/auth/register/register_form.dart';
+import 'package:schat/presentation/widgets/keyboard_dismisser.dart';
 
 class LoginPage extends GetView<AuthController> {
   const LoginPage({super.key});
@@ -11,16 +12,16 @@ class LoginPage extends GetView<AuthController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF209D4E),
-      body: Obx(()=>Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: controller.isRegister.value
-                ? const RegisterForm()
-                : const LoginForm(),
-          ),
-        ),
-      )),
+      body: Obx(() => Center(
+            child: KeyboardDismisser(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: controller.isRegister.value ? const RegisterForm() : const LoginForm(),
+                ),
+              ),
+            ),
+          )),
     );
   }
 }

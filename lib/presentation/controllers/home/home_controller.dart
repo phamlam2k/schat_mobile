@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:schat/app/config/app_icons.dart';
+import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 
 class HomeController extends GetxController {
   var selectedIndex = 0.obs;
@@ -8,6 +9,12 @@ class HomeController extends GetxController {
   void onItemTapped(int index) {
     selectedIndex.value = index;
   }
+
+  final AuthController authController;
+
+  HomeController({
+    required this.authController,
+  });
 
   String getIconForIndex(int index) {
     switch (index) {
@@ -22,5 +29,9 @@ class HomeController extends GetxController {
       default:
         return AppIcons.conversation;
     }
+  }
+
+  void onLogout() {
+    authController.onLogout();
   }
 }

@@ -10,7 +10,6 @@ import 'package:schat/data/providers/network/api_endpoint.dart';
 import 'package:schat/data/providers/network/api_request_representable.dart';
 import 'package:schat/domain/models/user_context/user_context.dart';
 
-
 class APIProvider {
   late Dio _dio;
   static final APIProvider _instance = APIProvider._internal();
@@ -38,15 +37,22 @@ class APIProvider {
           // Token expired
           var refreshToken = await TokenManager().getRefreshToken();
           if (refreshToken != null) {
-            var newToken = await refreshAccessToken(refreshToken);
+            try {
+              var newToken = await refreshAccessToken(refreshToken);
 
-            if (newToken != null) {
-              // Update the access token
-              await TokenManager().setAccessToken(newToken);
-              // Clone the original request and retry
-              final newRequest = e.requestOptions;
-              newRequest.headers["Authorization"] = "Bearer $newToken";
-              return handler.resolve(await _dio.fetch(newRequest));
+              if (newToken != null) {
+                // Update the access token
+                await TokenManager().setAccessToken(newToken);
+                // Clone the original request and retry
+                final newRequest = e.requestOptions;
+                newRequest.headers["Authorization"] = "Bearer $newToken";
+                return handler.resolve(await _dio.fetch(newRequest));
+              }
+            } catch (e) {
+              g.Get.find<LocalStorageService>().userContext = null;
+              if (e is DioException) {
+                return handler.next(e);
+              }
             }
           }
         }
