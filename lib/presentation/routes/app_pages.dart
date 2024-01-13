@@ -4,6 +4,7 @@ import 'package:schat/presentation/controllers/auth/auth_controller.dart';
 import 'package:schat/presentation/controllers/home/home_binding.dart';
 import 'package:schat/presentation/pages/auth/auth_page.dart';
 import 'package:schat/presentation/pages/auth/verify_otp/verify_otp_screen.dart';
+import 'package:schat/presentation/pages/change_password/change_password.dart';
 import 'package:schat/presentation/pages/forgot/forgot_password_page.dart';
 import 'package:schat/presentation/pages/home/home_page.dart';
 
@@ -35,6 +36,11 @@ abstract class AppPages {
       name: Routes.home,
       binding: HomeBindings(),
       page: () => const HomePage(),
+    ),
+     GetPage(
+      name: Routes.changePassword,
+       binding: AuthBindings(),
+      page: () => const ChangePasswordPage(),
     ),
   ];
 }

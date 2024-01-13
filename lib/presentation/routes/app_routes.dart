@@ -6,4 +6,5 @@ abstract class Routes {
   static String forgot = "/forgot_pass";
   static String login = "/login";
   static String home = "/home";
+  static String changePassword = "/change-password";
 }

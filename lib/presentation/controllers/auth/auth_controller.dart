@@ -104,7 +104,6 @@ class AuthController extends GetxController {
         final response = await authenticationRepository.forgotPassword(
           email: emailController.text,
         );
-        print(response);
       }
     } on APIResponseException catch (e) {
       SnackbarHelper.errorSnackbar(e.message);
