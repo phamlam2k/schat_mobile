@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:schat/app/config/app_colors.dart';
 import 'package:schat/app/config/app_images.dart';
+import 'package:schat/app/util/format/time_format.dart';
+import 'package:schat/domain/models/conversation/conversation_model.dart';
 
 class MessageLine extends StatelessWidget {
   const MessageLine({
     super.key,
     required this.theme,
     required this.index,
+    required this.conversationModel,
   });
 
   final ThemeData theme;
   final int index;
+  final ConversationModel conversationModel;
   @override
   Widget build(BuildContext context) {
     return Slidable(
@@ -38,7 +42,7 @@ class MessageLine extends StatelessWidget {
       ),
       endActionPane: ActionPane(
         extentRatio: 0.75,
-        motion: ScrollMotion(),
+        motion: const ScrollMotion(),
         children: [
           const SizedBox(width: 4),
           customSlidableAction(
@@ -86,13 +90,13 @@ class MessageLine extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Bella Cote",
+                          conversationModel.name ?? "",
                           style: theme.textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          "12 giờ",
+                          TimeFormat.formatTime(conversationModel.lastMessage?.updatedAt),
                           style: theme.textTheme.bodySmall!.copyWith(
                             color: AppColors.green,
                           ),
@@ -103,7 +107,7 @@ class MessageLine extends StatelessWidget {
                       height: 4,
                     ),
                     Text(
-                      "You: Mollitia optio exercitationem iure accusantium esse doloribus quos ipsum.",
+                      "You: ${conversationModel.lastMessage?.conversation}",
                       overflow: TextOverflow.ellipsis,
                       style: theme.textTheme.bodyMedium,
                     )

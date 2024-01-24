@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:schat/app/config/app_colors.dart';
-import 'package:schat/app/config/app_icons.dart';
 import 'package:schat/app/config/app_images.dart';
 import 'package:schat/presentation/controllers/home/home_controller.dart';
 

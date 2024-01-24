@@ -12,6 +12,8 @@ class AppController extends GetxController {
 
   UserContext? get userContext => _rxUserContext.value;
 
+  String? get fullName => userContext?.user?.fullName;
+
   AppController(
     this._store,
   );
@@ -41,6 +43,7 @@ class AppController extends GetxController {
   login(UserContext response) async {
     _rxUserContext.value = response;
     _tokenManager.setAccessToken(response.accessToken);
+    _tokenManager.setRefreshToken(response.refreshToken);
   }
 
   logout() {

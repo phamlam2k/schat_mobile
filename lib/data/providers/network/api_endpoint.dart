@@ -10,4 +10,5 @@ class APIEndpoint {
   static String get verifyOtp => '/auth/active';
   static String get sendOtpForgot => '/auth/sentOtpForGot';
   static String get logout => '/auth/logout';
+  static String get getConversationList => '/conversation';
 }
